@@ -12,7 +12,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 
 public class UserService {
-    public static final String BASE_URL = "http://192.168.43.90:8080/";
+    public static final String BASE_URL = "http://192.168.43.40:8080";
     public static UserApi userApi;
     public static UserApi getUserApiInstance(){
         Retrofit retrofit = new Retrofit.Builder()
@@ -25,12 +25,12 @@ public class UserService {
     }
     public interface UserApi{
         @Multipart
-        @POST("/user/")
+        @POST("/user/save")
         public Call<User> saveProfile(@Part MultipartBody.Part file,
                                       @Part("name") RequestBody name,
                                       @Part("address") RequestBody address,
                                       @Part("email")RequestBody email,
-                                      @Part("contactNumber") RequestBody contactNumber,
+                                      @Part("mobile") RequestBody contactNumber,
                                       @Part("token") RequestBody token);
     }
 }

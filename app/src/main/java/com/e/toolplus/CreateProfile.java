@@ -119,9 +119,6 @@ public class CreateProfile extends AppCompatActivity {
                     Call<User> call = userApi.saveProfile(body,userName,userAddress,useremail,userContact,userToken);
 
                     call.enqueue(new Callback<User>() {
-
-                        /*If everything will be successful this method will be called*/
-
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
                             if(response.code() == 200) {
@@ -129,10 +126,6 @@ public class CreateProfile extends AppCompatActivity {
                                 Toast.makeText(CreateProfile.this, "Success", Toast.LENGTH_SHORT).show();
                             }
                         }
-
-                        /*If In case of any failure this  method will be called*/
-
-
                         @Override
                         public void onFailure(Call<User> call, Throwable t) {
                             Toast.makeText(CreateProfile.this, "Failed : "+t, Toast.LENGTH_SHORT).show();
